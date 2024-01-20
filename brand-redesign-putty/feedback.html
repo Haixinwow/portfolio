@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuTTY Brand Redesign</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header class="header"> 
+        <div class="headerleft">
+            <div class="toplogo"> 
+                <img class="puttylogo"src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/PuTTY_Icon.svg/2048px-PuTTY_Icon.svg.png" alt="puttylogo">
+            </div> 
+            <div class="puttyname"> 
+                <b>PuTTY</b>
+            </div>
+        </div>
+        <div class="headerright">
+            <a href="#">Feedback</a>
+            <a href="team.html">Team</a>  
+            <!-- <a href="faq.html">FAQs</a>  -->
+            <a href="updates.html">Updates</a>
+            <a href="keys.html">Keys</a> 
+            <a href="download.html">Download: Stable | Snapshot</a> 
+            <a href="index.html">Home</a>    
+        </div>
+    </header>
+    <div class="puttysubtitle">
+        <h1>PuTTY Feedback</h1>
+    </div>
+    <div class="content">
+        <form>
+            <p id="emailprompt">
+                <b>Email:</b>
+            </p>
+            <label for="email" class="required">   
+                <input id="email" type="text" name="Feedback">
+            </label>
+            <p id="feedbackprompt"> <br><br><b>Comments:</b></p>
+            <p>
+                <textarea></textarea>
+            </p>
+            <p id="submit"><input type="submit" value="Submit"></p>
+            <!--a little mess, but made me realize there are multple ways to implement this-->
+        </form>
+
+    </div>
+</body>
+</html>

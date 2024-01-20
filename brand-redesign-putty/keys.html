@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuTTY Brand Redesign</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header class="header"> 
+        <div class="headerleft">
+            <div class="toplogo"> 
+                <img class="puttylogo"src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/PuTTY_Icon.svg/2048px-PuTTY_Icon.svg.png" alt="puttylogo">
+            </div> 
+            <div class="puttyname"> 
+                <b>PuTTY</b>
+            </div>
+        </div>
+        <div class="headerright">
+            <a href="feedback.html">Feedback</a>
+            <a href="team.html">Team</a>  
+            <!-- <a href="faq.html">FAQs</a>  -->
+            <a href="updates.html">Updates</a>
+            <a href="#">Keys</a> 
+            <a href="download.html">Download: Stable | Snapshot</a> 
+            <a href="index.html">Home</a>    
+        </div>
+    </header>
+    <div class="puttytitle">
+        <div class="homeleft">
+            <h1>PuTTY Download Keys and Signatures</h1>
+        </div>
+        <div class="homeright">
+            <img class="key" src="https://www.ualberta.ca/facilities-operations/media-library/documents/icon_lock-change-key-request.png">
+        </div>
+    </div>
+    <div class="content">
+        <h2>Appendix F: PuTTY download keys and signatures</h2>
+        <p>We create GPG signatures for all the PuTTY files distributed from our web site, so that users can be confident that the files have not been tampered with. Here we identify our public keys, and explain our signature policy so you can have an accurate idea of what each signature guarantees. This description is provided as both a web page on the PuTTY site, and an appendix in the PuTTY manual.<br><br>
+
+            As of <i>release 0.58</i>, all of the PuTTY executables contain fingerprint material (usually accessed via the -pgpfp command-line option), such that if you have an executable you trust, you can use it to establish a trust path, for instance to a newer version downloaded from the Internet.<br><br>
+            
+            As of <i>release 0.67</i>, the Windows executables and installer also contain built-in signatures that are automatically verified by Windows' own mechanism (‘Authenticode’). The keys used for that are different, and are not covered here.<br><br>
+            
+            (Note that none of the keys, signatures, etc mentioned here have anything to do with keys used with SSH - they are purely for verifying the origin of files distributed by the PuTTY team.)<br><br></p>
+        <h3>F.1 Public keys</h3>
+        <p>
+            We maintain multiple keys, stored with different levels of security due to being used in different ways. <br><br>
+
+            The keys we provide are:<br><br>
+            <div class="keys">
+                <div class="eachkey">
+                    <b>Snapshot Key<br></b>
+                    <div class="licenceindent">Used to sign routine development builds of PuTTY: nightly snapshots, pre-releases, and sometimes also custom diagnostic builds we send to particular users.<br>
+                    </div><hr>
+                    <b>Snapshot Key (2021)</b><br>
+                    <div class="licenceindent">RSA, 3072-bit. Key ID: B43979F89F446CFD. Fingerprint: 1FD3 BCAC E532 FBE0 6A8C 09E2 B439 79F8 9F44 6CFD<br>
+                    </div>
+                </div>
+                <div class="eachkey">
+                    <b>Release Key<br></b>
+                    <div class="licenceindent">Used to sign manually released versions of PuTTY.<br>
+                    </div><hr>
+                    <b>Release Key (2021)</b><br>
+                    <div class="licenceindent">RSA, 3072-bit. Key ID: E4F83EA2AA4915EC. Fingerprint: 2CF6 134B D3F7 7A65 88EB D668 E4F8 3EA2 AA49 15EC<br>
+                    </div>
+                </div>
+                <div class="eachkey">
+                    <b>Secure Contact Key<br></b>
+                    <div class="licenceindent">An encryption-capable key suitable for people to send confidential messages to the PuTTY team, e.g. reports of vulnerabilities.<br>
+                    </div><hr>
+                    <b>Secure Contact Key (2021)</b><br>
+                    <div class="licenceindent">RSA, 3072-bit. Key ID: 012C59D4211BD62A. Fingerprint: E30F 1354 2A04 BE0E 56F0 5801 012C 59D4 211B D62A<br>
+                    </div>
+                </div>
+                <div class="eachkey">
+                    <b>Master Key<br></b>
+                    <div class="licenceindent">Used to tie all the above keys into the GPG web of trust. The Master Key signs all the other keys, and other GPG users have signed it in turn.<br>
+                    The current issue of those keys are available for download from the PuTTY website, and are also available on PGP keyservers using the key IDs listed below.<br>
+                    </div><hr>
+                    <b>Master Key (2021)</b><br>
+                    <div class="licenceindent">RSA, 3072-bit. Key ID: DD4355EAAC1119DE. Fingerprint: A872 D42F 1660 890F 0E05 223E DD43 55EA AC11 19DE<br>
+                    </div>
+                </div>
+            </div>
+        </p>
+    </div>
+</body>
+</html>
