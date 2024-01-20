@@ -1,0 +1,28 @@
+.option{
+    cursor: pointer;
+    margin-bottom: 10px;    
+}
+
+.option:hover{
+    text-decoration: underline;
+}
+
+.contents input{
+    width:75%;
+}
+
+.contents input:hover{
+    cursor:auto;
+    text-decoration: none;
+}
+.contents{
+    background-color: #282c34;
+    position: fixed;
+    margin-left: -4%;
+    top:9vh;
+    z-index: 2;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    font-size: calc(10px + 1vmin);
+    min-width: 12.5vw;
+}

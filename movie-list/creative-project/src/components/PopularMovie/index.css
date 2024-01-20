@@ -1,0 +1,51 @@
+.popularMovies {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .popularMovie {
+    margin: 0.8%;
+    position: relative;
+  }
+  
+  .posterContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .posterImage {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.2s ease-in-out;
+    filter: brightness(1);
+  }
+  
+  .posterImage:hover {
+    transform: scale(1.025);
+    filter: brightness(0.5);
+  }
+  
+  .movieTitle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    font-size: 18px;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .posterContainer:hover .movieTitle {
+    opacity: 1;
+  }
+  

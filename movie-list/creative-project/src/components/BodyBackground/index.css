@@ -1,0 +1,123 @@
+.glass {
+    filter: blur(25px);
+    left: -5%;
+    width: 108%;
+    height: 110vh;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    background-color: rgb(255, 255, 255);
+    overflow: none
+}
+
+.animation {
+    position: relative;
+    z-index: -2;
+}
+
+.shape1 {
+    position: absolute;
+    top: 20vh;
+    left: 31vw;
+    width: 50vh;
+    height: 50vh;
+    background-color: #D16BA5;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+    opacity: 80%;
+    animation: shape1anim 60s ease-in-out infinite;
+}
+
+.shape2 {
+    position: absolute;
+    top: 25vh;
+    left: 41vw;
+    width: 50vh;
+    height: 50vh;
+    background-color: #86A8E7;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+    opacity: 80%;
+    animation: shape2anim 20s linear infinite;
+
+}
+
+.shape3 {
+    position: absolute;
+    top: 20vh;
+    left: 51vw;
+    width: 50vh;
+    height: 50vh;
+    background-color: #5FFBF1;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+    opacity: 80%;
+    animation: shape3anim 20s ease-in-out infinite;
+}
+
+@keyframes shape1anim {
+    from {
+        top: 20vh;
+        left: 31vw;
+    }
+
+    25% {
+        top: 8vh;
+        left: 20vw;
+    }
+
+    50% {
+        transform: scale(1.1);
+        top: 25vh;
+        left: 16vw;
+    }
+
+    75% {
+        top: 42vh;
+        left: 28vw;
+    }
+
+    to {
+        top: 20vh;
+        left: 31vw;
+    }
+}
+
+/* https://www.tutorialspoint.com/online_css_editor.php */
+@keyframes shape2anim {
+    from {
+        transform: rotate(0deg) translateX(60px) rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg) translateX(60px) rotate(-360deg);
+    }
+}
+
+@keyframes shape3anim {
+    from {
+        top: 20vh;
+        left: 51vw;
+    }
+
+    25% {
+        top: 18vh;
+        left: 60vw;
+    }
+
+    50% {
+        transform: scale(1.15);
+        top: 20vh;
+        left: 51vw;
+    }
+
+    75% {
+        top: 45vh;
+        left: 65vw;
+    }
+
+    to {
+        top: 20vh;
+        left: 51vw;
+    }
+}
