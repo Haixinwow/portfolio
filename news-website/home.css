@@ -1,0 +1,258 @@
+body {
+    background-color: #ffffff;
+    text-align: center;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.header {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 100%;
+    padding: 10px;
+    width: 100%;
+    background-color: #C2E7FF;
+    height: 17px;
+    border-bottom: 5px solid #0B3954;
+    vertical-align: center;
+    z-index: 3;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.headerLeft {
+    color: #0B3954;
+    font-weight: 1000;
+    float: left;
+    padding: 0;
+    padding-left: 8%;
+}
+
+.headerLeft a:link {
+    color: #0B3954;
+    text-decoration: none;
+}
+
+.headerLeft a:visited {
+    color: #0B3954;
+    text-decoration: none;
+}
+
+.headerLeft a:hover {
+    color: #115d8a;
+    text-decoration: underline;
+}
+
+.headerRight {
+    float: right;
+    padding-right: 8%;
+}
+
+.headerRight a {
+    width: 60%;
+    padding: .6vw;
+}
+
+.headerRight a:link {
+    color: #0B3954;
+    text-decoration: none;
+}
+
+.headerRight a:visited {
+    color: #0B3954;
+    text-decoration: none;
+}
+
+.headerRight a:hover {
+    color: #115d8a;
+    text-decoration: underline;
+}
+
+.title {
+    font-family: Tahoma, sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    text-align: center;
+}
+
+form {
+    margin-top: 5px;
+    font-family: Tahoma, sans-serif;
+    font-size: 24px;
+    text-align: center;
+}
+
+input {
+    font-family: Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+label {
+    font-family: Tahoma, sans-serif;
+}
+
+textarea {
+    font-size: 16px;
+    resize: none;
+}
+
+#titleAndLink {
+    float: left;
+    height: 350px;
+    width: 50%;
+}
+
+#linkinput,
+#titleinput {
+    width: 90%;
+}
+
+#contentinput {
+    float: right;
+    height: 400px;
+    width: 50%;
+}
+
+.stories {
+    margin-top: 75px;
+}
+
+.margin-top35 {
+    margin-top: 35px;
+}
+
+.storiesLeft {
+    float: left;
+    padding: 0;
+    padding-left: 8%;
+    width: 40%;
+}
+
+.storiesRight {
+    float: right;
+    padding: 0;
+    padding-right: 8%;
+    width: 40%;
+}
+
+.story {
+    border: solid 1px black;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.storyTitle {
+    font-family: Tahoma, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.author {
+    font-size: 14px;
+    font-weight: lighter;
+    margin-bottom: 20px;
+}
+
+.content {
+    max-height: 350px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    overflow-y: auto;
+    border: black solid 1px;
+}
+
+
+/* https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp */
+
+.content::-webkit-scrollbar {
+    display: none;
+}
+
+.link {
+    max-height: 15px;
+    padding: 5px;
+    text-align: center;
+    width: 98%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.link a:link {
+    color: #2287c2;
+    text-decoration: underline;
+}
+
+.link a:visited {
+    color: #2287c2;
+    text-decoration: underline;
+}
+
+.link a:hover {
+    color: #115d8a;
+    text-decoration: underline;
+}
+
+.commentsTitle {
+    margin-top: 35px;
+    font-family: Tahoma, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #000000;
+    height: 30px;
+}
+
+.comments form {
+    margin-top: 5px;
+}
+
+.comment .author {
+    margin-bottom: 0px;
+    margin-top: 20px;
+}
+
+.commentContent {
+    max-height: 50px;
+    border: black solid 1px;
+    padding: 10px;
+    overflow-y: scroll;
+    background-color: #ffffff;
+}
+
+.commentContent::-webkit-scrollbar {
+    display: none;
+}
+
+.writeeditcomments {
+    height: 400px;
+    padding: 50px;
+    padding-top: 0px;
+    padding-bottom: 75px;
+}
+
+.writeeditcommentsp {
+    max-height: 350px;
+}
+
+#commenttextarea {
+    height: 400px;
+    width: 80%;
+}
+
+.commentbutton {
+    margin: 20px;
+}
+
+#titleinput {
+    height: 250px;
+}
+
+#linkinput {
+    height: 86.5px;
+}
+
+#contentinput2 {
+    width: 100%;
+    height: 400px;
+}

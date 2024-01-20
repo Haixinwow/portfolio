@@ -1,7 +1,7 @@
 # CSE330
 Group work: 
-Aryel Rodriguez - majority of html portion
-Haixin Zhou - majority of php portion
+Aryel Rodriguez - majority of php portion
+Haixin Zhou - majority of html portion
 
 Site: 
 http://ec2-3-133-89-3.us-east-2.compute.amazonaws.com/~AryelR/module2-group-module2-485742-474959/fileSharing.html
