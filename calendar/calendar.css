@@ -1,0 +1,260 @@
+        body {
+            background-color: #ffffff;
+            text-align: center;
+            font-family: 'Trebuchet MS', sans-serif;
+            margin: 0px;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0%;
+            left: 0%;
+            right: 100%;
+            padding: 10px;
+            width: 100%;
+            background-color: #EFBC9B;
+            height: 17px;
+            border-bottom: 1px solid rgb(175, 175, 175);
+            vertical-align: center;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+        
+        .headerLeft {
+            color: #32001A;
+            font-weight: 1000;
+            float: left;
+            padding: 0;
+            padding-left: 2%;
+        }
+        
+        #pageTitle {
+            float: left;
+        }
+        
+        #loginStatus {
+            font-weight: 400;
+            float: left;
+        }
+        
+        .headerRight {
+            color: #32001A;
+            float: right;
+            padding-right: 25px;
+        }
+        
+        .headerRight a {
+            width: 60%;
+            padding: .6vw;
+        }
+        
+        .headerRight a:link {
+            color: #32001A;
+            text-decoration: none;
+        }
+        
+        .headerRight a:visited {
+            color: #32001A;
+            text-decoration: none;
+        }
+        
+        .headerRight a:hover {
+            cursor: pointer;
+            color: #32001A;
+            text-decoration: underline;
+        }
+        
+        .userInput {
+            max-width: 100px;
+        }
+        
+        .sidebar {
+            padding-top: 15px;
+            width: 12.4%;
+            border: rgb(175, 175, 175);
+            overflow-y: auto;
+        }
+        
+        .sideTitle {
+            font-size: 1.15vw;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+        
+        .sideSection {
+            margin-bottom: 30px;
+        }
+        
+        .leftAndRightButtons {
+            padding-top: 5px;
+            margin: 1px;
+            height: 3%;
+        }
+        
+        .button {
+            text-align: center;
+            width: 15%;
+            padding: 2px;
+            margin: 2px;
+            border: 1px black solid;
+            border-radius: 8px;
+        }
+        
+        .button:hover {
+            cursor: pointer;
+        }
+        
+        #prev_month_btn {
+            float: left;
+            margin-left: 20%;
+        }
+        
+        #next_month_btn {
+            float: right;
+            margin-right: 20%;
+        }
+        
+        .subtitle {
+            display: inline-block;
+            width: 67%;
+            margin-bottom: 5px;
+        }
+        
+        .content {
+            font-size: 1vw;
+            margin-top: 37px;
+            width: 98.6vw;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .calendar {
+            width: 87.4%;
+        }
+        
+        .week {
+            display: flex;
+            justify-content: space-between;
+            height: 18.7vh;
+        }
+        
+        .day {
+            border: 1px solid rgb(175, 175, 175);
+            flex: 1;
+            overflow-y: auto;
+            padding-top: 10px;
+            margin: 0 -1px -1px 0;
+        }
+        
+        .otherMonth {
+            background-color: #ededed;
+        }
+        
+        .date {
+            color: rgb(78, 78, 78);
+        }
+        
+        .event {
+            padding: 5px;
+        }
+        
+        .time {
+            color: rgb(78, 78, 78);
+            float: left;
+            width: 40%;
+        }
+        
+        .eventName {
+            font-weight: 500;
+            float: left;
+            width: 34%;
+            overflow-wrap: break-word;
+        }
+        
+        .editIcon {
+            /* border: black 1px solid; */
+            float: left;
+            width: 7.5%;
+        }
+        
+        .editIcon:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        
+        .groupIcon {
+            /* border: black 1px solid; */
+            float: left;
+            width: 7.5%;
+        }
+        
+        .groupIcon:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        
+        .deleteIcon {
+            /* border: black 1px solid; */
+            float: left;
+            width: 7.5%;
+        }
+        
+        .deleteIcon:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        
+        .eventInput {
+            margin-bottom: 5px;
+            width: 67%;
+        }
+        
+        #eventNameInput {
+            padding: 0px;
+            padding-left: 1px;
+        }
+        
+        #eventInputButton {
+            padding: 0px;
+            padding-left: 1px;
+            width: 55%;
+        }
+        
+        #eventInputButton:hover {
+            cursor: pointer;
+        }
+        
+        #errorMessage {
+            margin-top: 10px;
+            color: red;
+        }
+        
+        #eventNameInputEdit {
+            padding: 0px;
+            padding-left: 1px;
+        }
+        
+        #eventInputButtonEdit {
+            padding: 0px;
+            padding-left: 1px;
+            width: 55%;
+        }
+        
+        #eventInputButtonEdit:hover {
+            cursor: pointer;
+        }
+        
+        .Reminders {
+            color: blue;
+        }
+        
+        .Tasks {
+            color: rgb(15, 172, 15);
+        }
+        
+        .Birthdays {
+            color: rgb(234, 143, 69);
+        }
+        
+        .Classes {
+            color: rgb(233, 70, 222);
+        }

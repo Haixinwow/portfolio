@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="calendar.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="headerLeft">
+            <div id="pageTitle">Calendar: </div>
+            <div id="loginStatus"></div>
+        </div>
+        <div class="headerRight">
+            <input type="text" id="usernameInput" class="userInput" placeholder="Username">
+            <input type="hidden" name="token" value="<?php echo $_SESSION['token'];?>">
+            <input type="text" id="passwordInput" class="userInput" placeholder="Password">
+            <a id="signup_btn">Register</a>
+            <a id="login_btn">Login</a>
+            <a id="logout_btn">Logout</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="sidebar">
+            <div class="sideSection">
+                <div class="sideTitle">
+                    Current Year
+                </div>
+                <div id="yearTitle">
+                    Year
+                </div>
+            </div>
+            <div class="sideSection">
+                <div class="sideTitle">
+                    Current Month
+                </div>
+                <div id="monthTitle">
+                    Month
+                </div>
+                <div class="leftAndRightButtons">
+                    <div class="button " id="prev_month_btn">
+                        🡸
+                    </div>
+                    <div class="button " id="next_month_btn">
+                        🡺
+                    </div>
+                </div>
+            </div>
+
+            <div class="sideSection">
+                <div class="sideTitle">
+                    New Event
+                </div>
+                <input type="date" id="eventDateInput" class="eventInput">
+                <input type="time" id="eventTimeInput" class="eventInput">
+                <input type="hidden" name="token" value="<?php echo $_SESSION['token'];?>">
+                <input type="text" id="eventNameInput" placeholder="Event Name" class="eventInput">
+                <div id="tagsTitle">Tags:</div>
+                <div class="tags">
+                    <input type="radio" name="tag" value="Reminders" id="remindersButton">
+                    <label for="remindersButton" class="Reminders">Reminders</label>
+                    <br>
+                    <input type="radio" name="tag" value="Tasks" id="tasksButton">
+                    <label for="tasksButton" class="Tasks">Tasks</label>
+                    <br>
+                    <input type="radio" name="tag" value="Birthdays" id="birthdaysButton">
+                    <label for="birthdaysButton" class="Birthdays">Birthdays</label>
+                    <br>
+                    <input type="radio" name="tag" value="Classes" id="classesButton">
+                    <label for="classesButton" class="Classes">Classes</label>
+                    <br><br>
+                </div>
+                <input type="button" id="eventInputButton" value="Create Event">
+            </div>
+            <div class="sideSection">
+                <div class="sideTitle">
+                    Edit Event
+                </div>
+                <div class="subtitle">
+                    Select an Event to Edit
+                </div>
+                <input type="date" id="eventDateInputEdit" class="eventInput ">
+                <input type="time" id="eventTimeInputEdit" class="eventInput ">
+                <input type="hidden" name="token" value="<?php echo $_SESSION['token'];?>">
+                <input type="text" id="eventNameInputEdit" placeholder="Event Name " class="eventInput ">
+            </div>
+            <div class="sideSection">
+                <div class="sideTitle">
+                    Group Event
+                </div>
+                <div class="subtitle">
+                    Enter Recipient Username Then Select Event to Share
+                </div>
+                <input type="text" id="groupUsername" class="eventInput ">
+                <input type="hidden" name="token" value="<?php echo $_SESSION['token'];?>">
+            </div>
+            <div class="sideSection">
+                <div class="sideTitle">
+                    Share Calendar
+                </div>
+                <div class="subtitle">
+                    Enter Recipient Username
+                </div>
+                <input type="hidden" name="token" value="<?php echo $_SESSION['token'];?>">
+                <input type="text" id="shareCalusername" class="eventInput ">
+                <input type="button" id="sharecalendar" value="Share Calendar">
+            </div>
+            <div class="sideSection">
+                <div id="ErrorMessage"></div>
+            </div>
+        </div>
+        <div class="calendar " id="calendar">
+
+        </div>
+    </div>
+    <script src="calendar.js "></script>
+    <script src="login.js "></script>
+    <script src="signup.js "></script>
+    <script src="logout.js "></script>
+    <script src="onStartup.js "></script>
+    <script src="addevent.js "></script>
+    <script src="editevent.js"></script>
+    <script src="delete.js"></script>
+    <script src="share.js"></script>
+
+</body>
+
+
+
+</html>
