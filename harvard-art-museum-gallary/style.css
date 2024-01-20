@@ -1,0 +1,94 @@
+* {
+    background-color: #fdf0d5;
+    color:#003049;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.header {
+    margin: 5vw;
+    text-align: center;
+}
+.title {
+    font-weight: 600;
+    font-size: 50px;
+    /* https://www.w3schools.com/css/css3_animations.asp */
+    animation-name: bounce;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform: translateY(-20%);
+    }
+}
+input {
+    border:2px solid #003049;
+    border-radius: 2px;
+    height: 25px;
+    font-size: 20px;
+}
+input:focus {
+    outline: none;
+    border:2px solid #003049;
+    border-radius: 2px;
+}
+button {
+    border-radius: 2px;
+    font-size:20px;
+}
+.content {
+    margin: 2vw; 
+    display: grid;
+    font-size: 1.5vw;
+    column-gap:20px;
+    row-gap: 20px;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
+.item {
+    border:2px solid #a3d1ee;
+    background-color: #a3d1ee;
+    box-shadow: 10px 10px #669bbc;
+    padding: 20px;
+    text-align: center;
+}
+.author{
+    background-color: #a3d1ee;
+    font-size:20px;
+}
+.name {
+    background-color: #a3d1ee;
+    font-size:20px;
+    font-style: italic;
+    font-weight: bold;
+}
+.year {
+    background-color: #a3d1ee;
+    font-size:20px;
+    font-style: italic;
+    font-weight: light;
+}
+img {
+    background-color: #a3d1ee;
+}
+.description {
+    background-color: #a3d1ee;
+    font-size:20px;
+}
+
+@media (max-width: 1000px){
+    .content {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (max-width: 770px){
+    .content {
+        grid-template-columns: auto;
+    }
+}
