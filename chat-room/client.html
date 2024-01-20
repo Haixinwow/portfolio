@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        let local_user = "Anonymous User";
+        let room = "Main";
+        var socketio = io.connect();
+        socketio.emit('join', {
+            room: room,
+            name: local_user
+        });
+
+        socketio.on("initialize_name", function(data) {
+            //sets the name to initially be the id
+            console.log(data);
+            local_user = data;
+        });
+
+        socketio.on("message_to_client", function(data) {
+            //Append an HR thematic break and the escaped HTML of the new message
+
+            user = data["user"];
+
+            document.getElementById("chatlog").appendChild(document.createTextNode(user + ": " + data['message']));
+            document.getElementById("chatlog").appendChild(document.createElement("hr"));
+
+            //reset the message input and scroll to the bottom
+            //scrolling from https://stackoverflow.com/questions/11715646/scroll-automatically-to-the-bottom-of-the-page
+            document.getElementById("message_input").value = "";
+            document.getElementById("chatlog").scrollTo(0, document.getElementById("chatlog").scrollHeight);
+        });
+
+        socketio.on("message_with_image_to_client", function(data) {
+            // reset the file input
+            let fileInput = document.createElement('input');
+            fileInput.type = "file";
+            fileInput.id = "imageUpload";
+            fileInput.accept = "image/png, image/jpeg";
+            document.getElementById("imageUpload").replaceWith(fileInput);
+
+            //Append an HR thematic break and the escaped HTML of the new message
+            let img = document.createElement("img");
+            img.src = data.image;
+
+            user = data["user"];
+
+            //add the message and image to the chatlog
+            let chatlog = document.getElementById("chatlog");
+            chatlog.appendChild(document.createTextNode(user + ": " + data['message']));
+            chatlog.appendChild(document.createElement("br"))
+            chatlog.appendChild(img);
+            chatlog.appendChild(document.createElement("hr"));
+            //reset the message input and scroll to the bottom
+            document.getElementById("message_input").value = "";
+            document.getElementById("chatlog").scrollTo(0, document.getElementById("chatlog").scrollHeight);
+        });
+
+        socketio.on("private_message_to_client", function(data) {
+            //Append an HR thematic break and the escaped HTML of the new message
+            user = data["user"];
+
+            //display the pm with italicized styling
+            let pm = document.createElement('div');
+            pm.appendChild(document.createTextNode("PM from " + user + ": " + data['message']));
+            pm.classList.add("privateMessage");
+            document.getElementById("chatlog").appendChild(pm);
+            document.getElementById("chatlog").appendChild(document.createElement("hr"));
+
+            //reset the message input and scroll to the bottom
+            document.getElementById("message_input").value = "";
+            document.getElementById("chatlog").scrollTo(0, document.getElementById("chatlog").scrollHeight);
+        });
+
+        socketio.on("new_room_to_client", function(data) {
+            //Append the newly created room to the list
+            room = document.getElementById("room_input").value;
+
+            document.getElementById("roomName").innerText = "Room: " + room;
+            document.getElementById("chatlog").innerHTML = '';
+
+            let roomElement = document.createElement("div");
+            roomElement.classList.add("room");
+            roomElement.innerHTML = data['name'];
+            document.getElementById("rooms").appendChild(roomElement);
+        });
+
+        socketio.on("new_private_room_to_client", function(data) {
+            //Append the newly created room to the list
+            room = document.getElementById("private_room_input").value;
+
+            document.getElementById("roomName").innerText = "Room: " + room;
+            document.getElementById("chatlog").innerHTML = '';
+
+            let roomElement = document.createElement("div");
+            roomElement.classList.add("room");
+            roomElement.innerHTML = data['name'];
+            document.getElementById("privateRooms").appendChild(roomElement);
+        });
+
+        socketio.on("update_room_users", function(data) {
+            //Append the users to the list whenever it is updated
+            document.getElementById("users").innerHTML = "";
+            data.forEach(element => {
+                let userElement = document.createElement("div");
+                userElement.classList.add("user");
+                userElement.innerHTML = element;
+                userElement.id = element;
+                userElement.onclick = function() {
+                    sendPrivateMessage(userElement.id);
+                };
+                document.getElementById("users").appendChild(userElement);
+
+            });
+        });
+
+        socketio.on("update_title", function(data) {
+            //updates the display that shows which room the user is in
+            room = data['room'];
+            document.getElementById("roomName").innerText = "Room: " + data['room'];
+            document.getElementById("chatlog").innerHTML = '';
+        })
+
+        socketio.on("update_room_list", function(data) {
+            //updates the list of rooms on the right side
+            document.getElementById("rooms").innerHTML = "";
+            document.getElementById("privateRooms").innerHTML = "";
+            data.forEach(element => {
+                let roomElement = document.createElement("div");
+                roomElement.classList.add("room");
+                roomElement.innerHTML = element.room;
+                if (element.isPrivate) {
+                    document.getElementById("privateRooms").appendChild(roomElement);
+                } else {
+                    document.getElementById("rooms").appendChild(roomElement);
+                }
+            });
+        });
+
+        socketio.on("error_message", function(data) {
+            //display the error message in the chatlog
+            let error_message = document.createElement("div");
+            error_message.classList.add("error");
+            error_message.innerHTML = data["message"];
+            document.getElementById("chatlog").appendChild(error_message);
+            document.getElementById("chatlog").appendChild(document.createElement("hr"));
+        });
+
+        socketio.on("join_message_to_client", function(data) {
+            //display the error message in the chatlog
+            let join_message = document.createElement("div");
+            join_message.classList.add("error");
+            join_message.innerHTML = data + " joined the room";
+            document.getElementById("chatlog").appendChild(join_message);
+            document.getElementById("chatlog").appendChild(document.createElement("hr"));
+        });
+
+        //code from TA Pingchuan
+        function toBase64(file) {
+            //converts an image to base64 to display it
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+            });
+        }
+
+        function sendMessage() {
+            let msg = document.getElementById("message_input").value;
+            //get the first image file uploaded
+            let image = document.getElementById("imageUpload").files;
+            //check if user inputted an image or not
+            if (image.length == 0) {
+                socketio.emit("message_to_server", {
+                    message: msg,
+                    roomName: room,
+                    user: local_user
+                });
+            } else {
+                toBase64(image[0]).then((data) => {
+                    console.log(data);
+                    socketio.emit("message_with_image_to_server", {
+                        image: data,
+                        message: msg,
+                        roomName: room,
+                        user: local_user
+                    });
+                })
+            }
+        }
+
+        function sendPrivateMessage(recipientName) {
+            //same as sendmessage but server only sends to single user
+            let msg = document.getElementById("message_input").value;
+            socketio.emit("private_message", {
+                message: msg,
+                user: local_user,
+                userID: recipientName
+            });
+        }
+
+        function getUsername() {
+            //changes the display name
+            local_user = document.getElementById("username_input").value;
+            socketio.emit("change_username", {
+                user: local_user
+            })
+            // document.getElementById("local_user").innerText = local_user;
+        }
+
+        function createRoom() {
+            //creates a new public room
+            socketio.emit("room_create", {
+                roomName: document.getElementById("room_input").value,
+                prevRoom: room,
+                user: local_user
+            })
+        }
+
+        function createPrivateRoom() {
+            //creates a new private room
+            socketio.emit("private_room_create", {
+                roomName: document.getElementById("private_room_input").value,
+                prevRoom: room,
+                password: document.getElementById("private_room_password_input").value,
+                user: local_user
+            })
+        }
+
+        function joinRoom() {
+            //joins a public room
+            socketio.emit("room_join", {
+                roomName: document.getElementById("room_input").value,
+                prevRoom: room,
+                name: local_user
+            })
+        }
+
+        function joinPrivateRoom() {
+            //joins a private room
+            password = document.getElementById("private_room_password_input").value;
+            socketio.emit("private_room_join", {
+                roomName: document.getElementById("private_room_input").value,
+                prevRoom: room,
+                password: password
+            })
+        }
+
+        function owner_privilege_kick() { //dont forget to check owner
+            //kicks a user from a room
+            socketio.emit("kick_user", {
+                user: document.getElementById("toxic_user").value,
+                roomName: room
+            })
+        }
+
+        function owner_privilege_ban() {
+            //bans a user from a room
+            socketio.emit("ban_user", {
+                user: document.getElementById("toxic_user").value,
+                roomName: room
+            })
+        }
+    </script>
+    <link rel="stylesheet" href="client.css">
+    <title>Chat Room</title>
+</head>
+
+<body>
+    <div class="chatBox">
+        <div class="header">
+            <div class="headerLeft">
+                <div class="title">
+                    Chat Log
+                </div>
+                <div class="subtitle" id="roomName">
+                    Room: Main
+                </div>
+            </div>
+            <div class="headerRight">
+                <input type="file" id="imageUpload" accept="image/png, image/jpeg">
+
+                <input type="text" id="message_input" placeholder="Type a Message" />
+                <button onclick="sendMessage()">send</button>
+            </div>
+        </div>
+        <div id="chatlog">
+            <div class="error"></div>
+        </div>
+    </div>
+    <div class="rightContainer">
+        <div class="rightElement login">
+            <div class="subtitle">
+                Change Nickname
+            </div>
+            <input type="text" id="username_input" placeholder="Enter a Nickname" />
+            <button onclick="getUsername()">sign in</button>
+            <div class="username_display"></div>
+        </div>
+        <div class="rightElement chatList">
+            <div class="subtitle">
+                Public Chat Rooms
+            </div>
+            <div id="rooms"></div>
+            <input type="text" id="room_input" placeholder="Enter Room Name" />
+            <button onclick="createRoom()">create</button>
+            <button onclick="joinRoom()">join</button>
+
+            <div class="subtitle">
+                Private Chat Rooms
+            </div>
+            <div id="privateRooms">
+
+            </div>
+            <input type="text" id="private_room_input" placeholder="Enter Room Name" />
+            <button onclick="createPrivateRoom()">create</button>
+            <button onclick="joinPrivateRoom()">join</button>
+            <input type="text" id="private_room_password_input" placeholder="Enter Room Password" />
+
+        </div>
+        <div class="rightElement userList">
+            <div class="subtitle">
+                Users
+            </div>
+            <div class="instructions">
+                Type your Message then Click the User to PM
+            </div>
+
+            <div id="users">
+                <br>
+                <div class="user" id="local_user">
+
+                </div>
+
+            </div>
+            <input type="text" id="toxic_user" placeholder="Enter Username" />
+            <button onclick="owner_privilege_kick()">kick</button>
+            <button onclick="owner_privilege_ban()">ban</button>
+        </div>
+    </div>
+</body>
+
+</html>

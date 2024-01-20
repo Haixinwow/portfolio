@@ -1,0 +1,176 @@
+body {
+    font-family: "Lucida Console", monospace;
+    font-size: 14px;
+    color: teal;
+    background-color: #f9fbe7;
+    text-align: center;
+}
+
+.chatBox {
+    padding: 2vh;
+    float: left;
+    width: 72%;
+    border: solid 2px teal;
+    border-radius: 7px;
+    height: 93vh;
+    background-color: #f9fbe7;
+}
+
+#chatlog {
+    overflow-y: auto;
+    height: 80vh;
+    overflow-wrap: break-word;
+}
+
+.header {
+    padding-bottom: 18px;
+    border-bottom: 3px solid teal;
+    height: 10vh;
+    margin-bottom: 8px;
+}
+
+.headerLeft {
+    float: left;
+    padding-left: 5%;
+}
+
+.headerRight {
+    float: right;
+    padding-top: 25px;
+    padding-right: 5%;
+}
+
+.title {
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: x-large;
+    margin-top: 10px;
+}
+
+.subtitle {
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: medium;
+    margin-bottom: 10px;
+}
+
+.rightContainer {
+    height: 93vh;
+    float: right;
+    width: 23%;
+}
+
+.rightElement {
+    padding: 1.05vh;
+    width: 100%;
+    float: right;
+    border: solid 2px teal;
+    border-radius: 7px;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+}
+
+.login {
+    height: 10%;
+    margin-bottom: 1vh;
+}
+
+.chatList {
+    height: 42%;
+    margin-bottom: 1vh;
+}
+
+.userList {
+    height: 42%;
+}
+
+button {
+    background-color: #f9fbe7;
+    border: 1px solid teal;
+    color: teal;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1.5px 1.5px;
+    margin-bottom: 1vw;
+}
+
+button:hover {
+    outline: 1px solid teal;
+}
+
+hr {
+    margin-bottom: 10px;
+    border: 1.5px teal solid;
+    border-radius: 5px;
+}
+
+input[type=text] {
+    border: 1.5px teal solid;
+    border-radius: 3px;
+    padding: 3px;
+    background-color: #f9fbe7;
+    color: teal;
+    font-family: "Lucida Console", monospace;
+}
+
+input[type=text]::placeholder {
+    color: teal;
+}
+
+input[type=text]:focus {
+    outline: 1px solid teal;
+}
+
+.room {
+    margin-bottom: 5px;
+}
+
+.user {
+    margin-bottom: 5px;
+}
+
+input[type=file]::file-selector-button {
+    background-color: #f9fbe7;
+    border: 1px solid teal;
+    color: teal;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1.5px 1.5px;
+    margin-bottom: 1vw;
+}
+
+input[type=file]::file-selector-button:hover {
+    outline: 1px solid teal;
+}
+
+.error {
+    color: teal;
+    font-style: italic;
+}
+
+.user:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+img {
+    width: 50%;
+    margin-top: 5px;
+    border-radius: 10px;
+}
+
+#users button {
+    margin-left: 1vw;
+}
+
+.instructions {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: small;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+
+.privateMessage {
+    font-style: italic;
+}
